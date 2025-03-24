@@ -43,6 +43,7 @@
   <p>Hi! I'm Mahjabin Raida, I like butterflies. Say hello to my butterfly!</p>
   <input id="Name" placeholder="Your name">
   <input id="Email" type="email" placeholder="Your email">
+	<input id="Nationality" placeholder="What is your nationality?">
   <input id="submit" type="submit">
 </body>
 <script type="module">
@@ -78,6 +79,8 @@ const db = getDatabase(app);
   
 const Name = document.querySelector("#Name") 
 const Email = document.querySelector("#Email")
+const Nationality = document.querySelector("#Nationality")
+
 document.querySelector('#submit').addEventListener('click', Submit)
 
 function Submit() {
@@ -86,10 +89,12 @@ function Submit() {
   set(ref(db, timestamp), {
 	  Name: Name.value,
       Email: Email.value,
+		Nationality: Nationality.value,
   });
 
   Name.value = ""
   Email.value = ""
+	Nationality.value = ""
 }
 
 function buildTimestamp() {
@@ -120,6 +125,7 @@ function buildTimestamp() {
 
   return timestamp
 }
+
 
 function addLeadingZero(units) {
 	if (units.length < 2) {
